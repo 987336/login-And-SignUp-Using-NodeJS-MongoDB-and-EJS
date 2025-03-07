@@ -7,7 +7,7 @@ const {setUser} = require("./services/auth");
 const {SingUpModel} = require("./models/user");
 const {restrictForNotLoggedIn} = require("./middleware/auth")
 
-const PORT = process.env.PORT || 8001;
+const PORT = 8001;
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
@@ -21,9 +21,8 @@ app.set("views", path.resolve("./views"));
 
 // MongoDB Connections
 
-mongoose.connect("('mongodb+srv://rahuldevlkumar1:sakshi9999@my-rahul-database.an1cp.mongodb.net/myProjectDB?retryWrites=true&w=majority&appName=LoginAndSingUp")
+mongoose.connect("mongodb://localhost:27017/LoginAndSingUp")
 .then(()=>{console.log("Mongo DB Database Connected")})
-
 
 
 //Login Api

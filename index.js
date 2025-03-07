@@ -47,7 +47,7 @@ app.post("/loginuser",async(req,res)=>{
     const sessionID = uuidv4();
     setUser(sessionID,loginUser);
     res.cookie("uid",sessionID);
-    return res.status(200).redirect("/")
+    return res.status(200).redirect("/home")
 })
 
 
@@ -55,10 +55,10 @@ app.post("/loginuser",async(req,res)=>{
 
 // Page Rendering
 
-app.get("/",restrictForNotLoggedIn,(req,res)=>{
+app.get("/home",restrictForNotLoggedIn,(req,res)=>{
     res.status(200).render("home.ejs");
 })
-app.get("/singup",(req,res)=>{
+app.get("/",(req,res)=>{
     res.status(200).render("signup.ejs");
 })
 app.get("/login",(req,res)=>{
